@@ -12,6 +12,6 @@
 //      />
 //   </React.StrictMode>
 // );
-import Builder from './App';
+import FormBuilder from './App';
 
-export default Builder;
+export default FormBuilder;
