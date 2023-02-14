@@ -5,7 +5,7 @@ import { default as React } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 
-export const classNames = (...classes) => {
+export const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(" ");
 };
 
@@ -24,12 +24,12 @@ const DEFAULT_INITIAL_DATA = () => {
   };
 };
 
-const SingleChoiceQuestion = (props) => {
+const SingleChoiceQuestion = (props: any) => {
   const [choiceData, setChoiceData] = React.useState(
     props.data.options.length > 0 ? props.data : DEFAULT_INITIAL_DATA
   );
 
-  const updateData = (newData) => {
+  const updateData = (newData: any) => {
     setChoiceData(newData);
     if (props.onDataChange) {
       // Inform editorjs about data change
@@ -48,7 +48,7 @@ const SingleChoiceQuestion = (props) => {
     updateData(newData);
   };
 
-  const onDeleteOption = (optionIdx) => {
+  const onDeleteOption = (optionIdx: any) => {
     const newData = {
       ...choiceData,
     };
@@ -56,8 +56,8 @@ const SingleChoiceQuestion = (props) => {
     updateData(newData);
   };
 
-  const onInputChange = (fieldName) => {
-    return (e) => {
+  const onInputChange = (fieldName: any) => {
+    return (e: any) => {
       const newData = {
         ...choiceData,
       };
@@ -66,8 +66,8 @@ const SingleChoiceQuestion = (props) => {
     };
   };
 
-  const onOptionChange = (index, fieldName) => {
-    return (e) => {
+  const onOptionChange = (index: any, fieldName: any) => {
+    return (e: any) => {
       const newData = {
         ...choiceData,
       };
@@ -94,7 +94,7 @@ const SingleChoiceQuestion = (props) => {
         )}
       </div>
       <div className="max-w-sm mt-2 space-y-2">
-        {choiceData.options.map((option, optionIdx) => (
+        {choiceData.options.map((option: any, optionIdx: any) => (
           <div
             key={option.label}
             className={classNames("relative flex items-start")}

@@ -6,10 +6,14 @@
 // const root = ReactDOM.createRoot(
 //   document.getElementById('root') as HTMLElement
 // );
+
+// const onchange = async (data: any) => {
+//   console.log(data);
+// };
+
 // root.render(
 //   <React.StrictMode>
-//     <Builder
-//      />
+//     <Builder onChange={onchange} />
 //   </React.StrictMode>
 // );
 import FormBuilder from './App';

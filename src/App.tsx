@@ -1,9 +1,13 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import EditorJS from "@editorjs/editorjs";
 import Editor from './lib/Editor';
 
-export default function FormBuilder(onChange: () => void) {
-    const editorRef = useRef<EditorJS | null>();
+interface BuilderProps {
+    onChange: (data: any) => void;
+}
+
+export default function FormBuilder({onChange}: BuilderProps) {
+    const editorRef = React.useRef<EditorJS | null>();
 
     const initAction = async (editor: EditorJS) => {
         // console.log(editor);

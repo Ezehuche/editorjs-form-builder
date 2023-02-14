@@ -1,5 +1,6 @@
 import { API, BlockTool, BlockToolData, ToolConfig } from "@editorjs/editorjs";
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
+import React from "react";
 import ReactDOM from "react-dom";
 
 //styles imports in angular.json
@@ -91,7 +92,7 @@ export default class WebsiteQuestion implements BlockTool {
    * Click on the Settings Button
    * @param {string} tune — tune name from this.settings
    */
-  _toggleTune(tune) {
+  _toggleTune(tune: any) {
     this.wrapper.classList.toggle(tune.name, !!this.data[tune.name]);
 
     if (tune === "required") {

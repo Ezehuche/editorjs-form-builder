@@ -95,7 +95,7 @@ export default class MultipleChoiceQuestion implements BlockTool {
    * Click on the Settings Button
    * @param {string} tune — tune name from this.settings
    */
-  _toggleTune(tune) {
+  _toggleTune(tune: any) {
     //this.wrapper.classList.toggle(tune.name, !!this.data[tune.name]);
 
     if (tune === "required") {
@@ -108,7 +108,7 @@ export default class MultipleChoiceQuestion implements BlockTool {
     //rootNode.setAttribute("class", this.CSS.wrapper);
     this.nodes.holder = rootNode;
 
-    const onDataChange = (newData) => {
+    const onDataChange = (newData: any) => {
       this.data = {
         ...newData,
       };

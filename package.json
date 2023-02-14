@@ -1,6 +1,7 @@
 {
   "name": "editorjs-form-builder",
-  "version": "0.1.0",
+  "description": "A notion like form builder",
+  "version": "0.1.8",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -10,9 +11,6 @@
     "@editorjs/paragraph": "^2.9.0",
     "@headlessui/react": "^1.6.1",
     "@heroicons/react": "^2.0.8",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.11",
     "@types/react": "^18.0.26",
@@ -23,9 +21,7 @@
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.1.5",
     "react-scripts": "5.0.1",
-    "react-toastify": "^9.1.1",
-    "typescript": "^4.9.4",
-    "web-vitals": "^2.1.4"
+    "react-toastify": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -41,10 +37,14 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^9.1.2",
     "core-js": "^3.27.1",
+    "css-loader": "^6.7.3",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.0.2",
+    "postcss-preset-env": "^7.8.3",
     "regenerator-runtime": "^0.13.11",
+    "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.24",
     "ts-node": "^10.7.0",
     "typescript": "4.6.4",
@@ -54,10 +54,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build:react": "react-scripts build",
     "build": "npm run build:esm && npm run build:cjs",
     "webpack:build": "webpack --mode production --progress",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:babel": "babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "build:rollup": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -73,6 +76,13 @@
   "license": "MIT",
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "editorjs",
+    "editorjs-form-builder",
+    "formbuilder",
+    "form-builder",
+    "questionaire"
   ],
   "eslintConfig": {
     "extends": [

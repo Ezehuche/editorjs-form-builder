@@ -1,4 +1,5 @@
 import { API, BlockTool, BlockToolData, ToolConfig } from "@editorjs/editorjs";
+import React from "react";
 import ReactDOM from "react-dom";
 
 //styles imports in angular.json
@@ -86,7 +87,7 @@ export default class TextQuestion implements BlockTool {
    * Click on the Settings Button
    * @param {string} tune — tune name from this.settings
    */
-  _toggleTune(tune) {
+  _toggleTune(tune: any) {
     this.wrapper.classList.toggle(tune.name, !!this.data[tune.name]);
 
     if (tune === "required") {
