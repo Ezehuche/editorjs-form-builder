@@ -4,9 +4,10 @@ import Editor from './lib/Editor';
 
 interface BuilderProps {
     onChange: (data: any) => void;
+    initialData: { id: string, type: string, data: {} }[];
 }
 
-export default function FormBuilder({onChange}: BuilderProps) {
+export default function FormBuilder({onChange, initialData}: BuilderProps) {
     const editorRef = React.useRef<EditorJS | null>();
 
     const initAction = async (editor: EditorJS) => {
@@ -32,6 +33,7 @@ export default function FormBuilder({onChange}: BuilderProps) {
                             autofocus={true}
                             initAction={initAction}
                             onChange={onChange}
+                            initialData={initialData}
                         />
                     </main>
                 </div>

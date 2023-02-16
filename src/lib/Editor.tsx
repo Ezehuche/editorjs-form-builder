@@ -24,6 +24,7 @@ interface EditorProps {
     // formId: string;
     initAction: (editor: EditorJS) => void;
     onChange: (data: any) => void;
+    initialData: { id: string, type: string, data: {} }[];
 }
 
 const Editor = ({
@@ -32,6 +33,7 @@ const Editor = ({
     editorRef,
     initAction,
     onChange,
+    initialData,
 }: EditorProps) => {
     // const { noCodeForm, isLoadingNoCodeForm, mutateNoCodeForm } =
     //     useNoCodeForm(formId);
@@ -70,7 +72,7 @@ const Editor = ({
         const editor = new EditorJS({
             minHeight: 0,
             holder: id,
-            data: { blocks: [] },
+            data: { blocks: initialData },
             onReady: () => {
                 editorRef.current = editor;
                 new DragDrop(editor);

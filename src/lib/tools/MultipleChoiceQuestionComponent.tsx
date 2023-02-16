@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Switch } from "@headlessui/react";
+import { toast } from "react-toastify";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { default as React } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -25,6 +26,7 @@ const DEFAULT_INITIAL_DATA = () => {
 };
 
 const SingleChoiceQuestion = (props: any) => {
+  const [count, setCount] = React.useState<number>(0);
   const [choiceData, setChoiceData] = React.useState(
     props.data.options.length > 0 ? props.data : DEFAULT_INITIAL_DATA
   );
@@ -41,11 +43,18 @@ const SingleChoiceQuestion = (props: any) => {
     const newData = {
       ...choiceData,
     };
-    newData.options.push({
-      id: uuidv4(),
-      label: "",
-    });
-    updateData(newData);
+
+    const optIndex = newData.options.length - 1;
+
+    if(newData.options.length > 0 && newData.options[optIndex].label === "") {
+      toast("you can only add one option at a time");
+    } else {
+      newData.options.push({
+        id: uuidv4(),
+        label: "",
+      });
+      updateData(newData);
+    }
   };
 
   const onDeleteOption = (optionIdx: any) => {
@@ -94,7 +103,7 @@ const SingleChoiceQuestion = (props: any) => {
         )}
       </div>
       <div className="max-w-sm mt-2 space-y-2">
-        {choiceData.options.map((option: any, optionIdx: any) => (
+        {choiceData.options.map((option: any, optionIdx: number) => (
           <div
             key={option.label}
             className={classNames("relative flex items-start")}
