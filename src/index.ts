@@ -68,6 +68,12 @@
 //     }
 // ]
 
+// const initialData = [{
+//     id: '',
+//     type: '',
+//     data: {}
+// }]
+
 // root.render(
 //   <React.StrictMode>
 //     <Builder onChange={onchange} initialData={initialData} />

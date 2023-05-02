@@ -1,7 +1,7 @@
 {
   "name": "editorjs-form-builder",
   "description": "A notion like form builder",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",

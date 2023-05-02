@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import EditorJS from "@editorjs/editorjs";
-import Header from "@editorjs/header";
+// import Header from "@editorjs/header";
 import Paragraph from "@editorjs/paragraph";
 import DragDrop from "editorjs-drag-drop";
 import Undo from "editorjs-undo";
@@ -69,6 +69,7 @@ const Editor = ({
     }, []);
 
     const initEditor = () => {
+        // console.log("initial data", initialData);
         const editor = new EditorJS({
             minHeight: 0,
             holder: id,
@@ -77,7 +78,8 @@ const Editor = ({
                 editorRef.current = editor;
                 new DragDrop(editor);
                 new Undo({ editor });
-                if (editor.blocks.getBlocksCount() === 1) {
+                // console.log('block count', editor.blocks.getCurrentBlockIndex());
+                if (editor.blocks.getBlocksCount() === 1 && initialData[0].id === '') {
                     initAction(editor);
                 }
             },
@@ -108,14 +110,14 @@ const Editor = ({
                             "Start with your content or hit tab-key to insert block",
                     },
                 },
-                header: {
-                    class: Header,
-                    config: {
-                        placeholder: "Enter a header",
-                        levels: [1, 2, 3],
-                        defaultLevel: 1,
-                    },
-                },
+                // header: {
+                //     class: Header,
+                //     config: {
+                //         placeholder: "Enter a header",
+                //         levels: [1, 2, 3],
+                //         defaultLevel: 1,
+                //     },
+                // },
             },
         });
     };
