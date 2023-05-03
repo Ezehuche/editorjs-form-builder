@@ -1,6 +1,6 @@
 # Form Builder
 
-
+![Model](https://github.com/Ezehuche/editorjs-form-builder/blob/fce273e675059cdc26503134a8cf85fcafb805a8/public/images/form-builder.png)
 
 ## Installation
 
