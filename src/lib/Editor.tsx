@@ -78,10 +78,11 @@ const Editor = ({
                 editorRef.current = editor;
                 new DragDrop(editor);
                 new Undo({ editor });
+                initAction(editor);
                 // console.log('block count', editor.blocks.getCurrentBlockIndex());
-                if (editor.blocks.getBlocksCount() === 1 && initialData[0].id === '') {
-                    initAction(editor);
-                }
+                // if (editor.blocks.getBlocksCount() === 1 && initialData[0].id === '') {
+                //     initAction(editor);
+                // }
             },
             onChange: async () => {
                 const content = await editor.saver.save();
